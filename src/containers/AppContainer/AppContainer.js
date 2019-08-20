@@ -1,9 +1,12 @@
 import React from "react";
-import Button from "react-bootstrap/Button";
-
+import Navbar from "react-bootstrap/Navbar";
+import Nav from "react-bootstrap/Nav";
+import BoardContainer from "../BoardContainer/BoardContainer";
+import style from "./AppContainer.module.css";
 export default class AppContainer extends React.Component {
   constructor(props) {
     super(props);
+    console.log(style);
     this.state = {
       page: ""
     };
@@ -12,8 +15,15 @@ export default class AppContainer extends React.Component {
   render() {
     return (
       <div>
-        <h3>Trello is going to die</h3>
-        <Button variant="primary">Primary</Button>
+        <Navbar bg="primary" variant="dark">
+          <Navbar.Brand href="#home">Trello</Navbar.Brand>
+          <Nav className="mr-auto">
+            <Nav.Link href="#home">Home</Nav.Link>
+          </Nav>
+        </Navbar>
+        <div className={style.bodyCont}>
+          <BoardContainer />
+        </div>
       </div>
     );
   }
